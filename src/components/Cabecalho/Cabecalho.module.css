@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.cabecalho {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bege);
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho a {
+    color: var(--preto);
+    font-family: Oswald;
+}
+
+.imgLogo,
+.imgLogo img {
+    height: 100%;
+    width: 125px;
+    height: 125px;
+}
+
+nav ul {
+    display: flex;          /* Isso aqui resolve o problema! */
+    gap: 40px;              /* Espaço entre os itens do menu */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: flex;          
+    align-items: center;    
+    gap: 8px;               
+    cursor: pointer;
+}
+
+nav ul li img {
+    width: 24px;            
+    height:auto;
+}
