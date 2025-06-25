@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+h1 {
+    font-family: League Spartan;
+    color: var(--vermelho);
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 15px;
+
+}
+
+p {
+    font-family: Oswald;
+    color: var(--vermelho);
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.explorar {
+    background-color: var(--vermelho);
+    color: var(--creme);
+    width: 15%;
+    height: 7vh;
+    border: none;
+    border-radius: 20px;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-family: Oswald;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 20px;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.imagens {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 3px;
+    align-items: flex-end;
+}
+
+img {
+    display: flex;
+    flex-direction: row;
+    width: 70px;
+    border-radius: 9px;
+    object-fit: cover;
+}
+
+.img2 {
+    width: 300px;
+    height: 300px;
+}
+
+.img1, .img3 {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+}

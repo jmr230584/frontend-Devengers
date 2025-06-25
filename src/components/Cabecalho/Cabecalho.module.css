@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+}
+
 .cabecalho {
     width: 100%;
     height: 100%;
@@ -11,31 +21,41 @@
 .cabecalho a {
     color: var(--preto);
     font-family: Oswald;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 300;
 }
 
 .imgLogo,
 .imgLogo img {
     height: 100%;
-    width: 125px;
-    height: 125px;
+    width: 85px;
+    height: 85px;
+    margin-left: 9px;
 }
 
 nav ul {
-    display: flex;          /* Isso aqui resolve o problema! */
-    gap: 40px;              /* Espaço entre os itens do menu */
+    display: flex;
+    gap: 70px;
     padding: 0;
-    margin: 0;
     list-style: none;
 }
 
 nav ul li {
-    display: flex;          
-    align-items: center;    
-    gap: 8px;               
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
 }
 
 nav ul li img {
-    width: 24px;            
-    height:auto;
+    width: 30px;
+    height: auto;
+}
+
+.direita {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

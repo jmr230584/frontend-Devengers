@@ -15,30 +15,32 @@ function Cabecalho(): JSX.Element {
                 className={estilo.imgLogo}>
                 <img src={logotipo} alt="logotipo" />
             </a>
-            <nav>
-                <ul>
-                    <li>
-                        <img src={ingressos} alt="ingressos" />
-                        <a href={APP_ROUTES.ROUTE_INGRESSOS}>INGRESSOS</a>
-                    </li>
-                    <li>
-                        <img src={programacao} alt="programacao" />
-                        <a href={APP_ROUTES.ROUTE_PROGRAMACAO}>PROGRAMAÇÃO</a>
-                    </li>
-                    <li>
-                        <img src={salas} alt="salas" />
-                        <a href={APP_ROUTES.ROUTE_NOSSAS_SALAS}>NOSSAS SALAS</a>
-                    </li>
-                    <li>
-                        <img src={sobre} alt="sobre" />
-                        <a href={APP_ROUTES.ROUTE_SOBRE_NOS}>SOBRE NÓS</a>
-                    </li>
-                    <li>
-                        <img src={cadastro} alt="cadastro" />
-                        <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
-                    </li>
-                </ul>
-            </nav>
+            <div className={estilo.direita}>
+                <nav>
+                    <ul>
+                        <li>
+                            <img src={ingressos} alt="ingressos" />
+                            <a href={APP_ROUTES.ROUTE_INGRESSOS}>INGRESSOS</a>
+                        </li>
+                        <li>
+                            <img src={programacao} alt="programacao" />
+                            <a href={APP_ROUTES.ROUTE_PROGRAMACAO}>PROGRAMAÇÃO</a>
+                        </li>
+                        <li>
+                            <img src={salas} alt="salas" />
+                            <a href={APP_ROUTES.ROUTE_NOSSAS_SALAS}>NOSSAS SALAS</a>
+                        </li>
+                        <li>
+                            <img src={sobre} alt="sobre" />
+                            <a href={APP_ROUTES.ROUTE_SOBRE_NOS}>SOBRE NÓS</a>
+                        </li>
+                        <li>
+                            <img src={cadastro} alt="cadastro" />
+                            <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </header>
     )
 }
