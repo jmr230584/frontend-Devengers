@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.titulo {
+    font-family: League Spartan;
+    color: var(--vermelho);
+    text-align: left;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: Oswald;
+    color: var(--vermelho);
+    font-weight: bold;
+}
+
+p{
+    font-family: Oswald;
+    color: var(--preto);
+    text-align: left;
+    width: 90%;
+    margin-top: 5px;
+}
+
+.esquerda{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-left: 15px;
+    margin-top: 48px;
+}
+
+.direita{
+    display: flex;
+    width: 35%;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,15 +1,12 @@
 import { JSX } from "react";
 import Cabecalho from "../../components/Cabecalho/Cabecalho";
-import Sobre from "../../components/Sobre/Sobre";
 
-function PSobreNos(): JSX.Element {
+function PLogin(): JSX.Element {
     return (
         <>
             <Cabecalho />
-            <Sobre />
-
         </>
     );
 }
 
-export default PSobreNos;
+export default PLogin;
