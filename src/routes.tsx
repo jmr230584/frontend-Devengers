@@ -6,6 +6,7 @@ import PIngressos from './pages/PIngressos/PIngressos';
 import PNossasSalas from './pages/PNossasSalas/PNossasSalas';
 import PProgramacao from './pages/PProgramacao/PProgramacao';
 import PSobreNos from './pages/PSobreNos/PSobreNos';
+import PLogin from './pages/PLogin/PLogin';
 
 function AppRoutes() {
     return (
@@ -17,6 +18,7 @@ function AppRoutes() {
                 <Route path={APP_ROUTES.ROUTE_NOSSAS_SALAS} element={<PNossasSalas />}></Route>
                 <Route path={APP_ROUTES.ROUTE_SOBRE_NOS} element={<PSobreNos />}></Route>
                 <Route path={APP_ROUTES.ROUTE_CADASTRO} element={<PCadastro/>}></Route>
+                <Route path= {APP_ROUTES.ROUTE_LOGIN} element={<PLogin/>}></Route>
             </Routes>
         </BrowserRouter>
     );

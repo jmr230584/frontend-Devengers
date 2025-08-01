@@ -19,21 +19,23 @@ p{
     font-family: Oswald;
     color: var(--preto);
     text-align: left;
-    width: 90%;
+    width: 95%;
     margin-top: 5px;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 .esquerda{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 60%;
     margin-left: 15px;
     margin-top: 48px;
 }
 
 .direita{
     display: flex;
-    width: 35%;
+    width: 40%;
 }
 
 main{

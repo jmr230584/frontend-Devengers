@@ -9,7 +9,8 @@ function Welcome(): JSX.Element {
     return (
         <main className={estilo.welcome}>
             <h1>DESCUBRA O CINEPOP</h1>
-            <p>Bem vindo ao nosso cinema, onde a diversão está garantida. <br />
+            <p className={estilo.p} >
+                Bem vindo ao nosso cinema, onde a diversão está garantida. <br />
                 Adquira seus ingressos online hoje e prepare-se para uma <br />
                 experiência única!</p>
             <a className={estilo.explorar} href={APP_ROUTES.ROUTE_PROGRAMACAO}>Explorar</a>

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     font-family: League Spartan;
     color: var(--vermelho);
@@ -14,7 +20,7 @@ h1 {
 
 }
 
-p {
+.p {
     font-family: Oswald;
     color: var(--vermelho);
     font-weight: 300;
@@ -67,7 +73,7 @@ img {
 
 .img1, .img3 {
     width: 300px;
-    height: 250px;
+    height: 277px;
     display: flex;
     align-items: flex-end;
 }

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.superior h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+
+form {
+    width: 700px;
+    height: 300px;
+    background-color: var(--bege);
+    margin: auto auto;
+    border-radius: 5px;
+    display: flex;
+}
+
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login label {
+    font-family: Oswald;
+    font-weight: 300;
+    color: var(--preto);
+    font-size: 1.5rem;
+    margin: 0 10%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login label:nth-child(2) {
+    margin-top: 3%;
+}
+
+.input-email-login,
+.input-password-login {
+    margin-top: 2%;
+    padding-left: 2%;
+    font-family: League Spartan;
+    height: 6.5vh;
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--branco);
+}
+
+.input-button-login {
+    width: 30%;
+    height: 7vh;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    background-color: var(--vermelho);
+    color: var(--branco);
+
+    border: none;
+    border-radius: 5px;
+
+    margin: auto auto;
+    margin-top: 7%;
+}

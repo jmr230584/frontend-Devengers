@@ -1,0 +1,19 @@
+
+.button {
+    background-color: var(--vermelho);
+    color: var(--creme);
+    width: 15%;
+    height: 7vh;
+    border: none;
+    border-radius: 20px;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-family: Oswald;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 20px;
+    align-items: center;
+    padding: 10px 30px;
+}
