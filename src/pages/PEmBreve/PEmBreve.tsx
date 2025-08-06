@@ -2,7 +2,7 @@ import { JSX } from "react";
 import Cabecalho from "../../components/Cabecalho/Cabecalho";
 import Paginas from "../../components/Programacao/Paginas";
 
-function PProgramacao(): JSX.Element {
+function PEmbreve(): JSX.Element {
     return (
         <>
             <Cabecalho />
@@ -11,4 +11,4 @@ function PProgramacao(): JSX.Element {
     );
 }
 
-export default PProgramacao;
+export default PEmbreve;

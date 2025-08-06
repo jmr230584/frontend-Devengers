@@ -7,7 +7,7 @@ function LoginForm(): JSX.Element {
             <div className={estilo.superior}>
                 <h2>LOGIN</h2>
             </div>
-            <section>
+            <section className={estilo['container-login']}>
                 <form action="" className={estilo['form-login']}>
                     <label>
                         E-mail

@@ -7,6 +7,8 @@ import PNossasSalas from './pages/PNossasSalas/PNossasSalas';
 import PProgramacao from './pages/PProgramacao/PProgramacao';
 import PSobreNos from './pages/PSobreNos/PSobreNos';
 import PLogin from './pages/PLogin/PLogin';
+import PEmbreve from './pages/PEmBreve/PEmBreve';
+import PPreVenda from './pages/PPreVenda/PPrevenda';
 
 function AppRoutes() {
     return (
@@ -19,6 +21,8 @@ function AppRoutes() {
                 <Route path={APP_ROUTES.ROUTE_SOBRE_NOS} element={<PSobreNos />}></Route>
                 <Route path={APP_ROUTES.ROUTE_CADASTRO} element={<PCadastro/>}></Route>
                 <Route path= {APP_ROUTES.ROUTE_LOGIN} element={<PLogin/>}></Route>
+                <Route path= {APP_ROUTES.ROUTE_EM_BREVE} element={<PEmbreve/>}></Route>
+                <Route path={APP_ROUTES.ROUTE_PRE_VENDA} element={<PPreVenda/>}></Route>
             </Routes>
         </BrowserRouter>
     );

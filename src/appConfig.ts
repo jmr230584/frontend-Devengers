@@ -5,7 +5,9 @@ export const APP_ROUTES = {
     ROUTE_NOSSAS_SALAS: '/nossas-salas',
     ROUTE_SOBRE_NOS: '/sobre-nos',
     ROUTE_CADASTRO: '/cadastro',
-    ROUTE_LOGIN: '/login'
+    ROUTE_LOGIN: '/login',
+    ROUTE_EM_BREVE: '/em-breve',
+    ROUTE_PRE_VENDA: '/pre-venda'
 }
 
 export const SERVER_CFG = {
