@@ -1,19 +1,93 @@
 
-.button {
-    background-color: var(--vermelho);
-    color: var(--creme);
-    width: 15%;
-    height: 7vh;
-    border: none;
-    border-radius: 20px;
-    margin: auto auto;
+.cadastro {
     display: flex;
+    flex-direction: column;
+}
+
+.superior h2 {
+    display: flex;
+    width: 100%;
     justify-content: center;
-    cursor: pointer;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 60vh;
+    background-color: var(--bege);
+    margin: auto auto;
+    border-radius: 20px;
+    padding: 2% 0;
+}
+
+.form-cadastro label {
     font-family: Oswald;
     font-weight: 300;
-    text-decoration: none;
-    font-size: 20px;
-    align-items: center;
-    padding: 10px 30px;
+    color: var(--preto);
+    font-size: 1.5rem;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
 }
+
+.input-nome-cadastro,
+.input-email-cadastro,
+.input-password-cadastro,
+.input-cpf-cadastro, 
+.input-celular-cadastro {
+    margin-top: 2%;
+    padding-left: 2%;
+    font-family: League Spartan;
+    height: 6.5vh;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--branco);
+}
+
+.container-botoes {
+  display: flex;
+  gap: 1rem;               
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  padding: 0 2%;
+  box-sizing: border-box;
+}
+
+.input-button-cadastro,
+.input-button-ja-possuo-cadastro {
+  flex: 1 1 0;             
+  min-width: 140px;       
+  height: 7vh;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.input-button-cadastro:hover,
+.input-button-ja-possuo-cadastro:hover {
+  background-color: var(--vermelho-escuro);
+  transition: background-color 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  .container-botoes {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .input-button-cadastro,
+  .input-button-ja-possuo-cadastro {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
