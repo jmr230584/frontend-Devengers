@@ -1,7 +1,10 @@
-.filme-card{
-    color:#fff;
-
-    .descrição{
-        color:azure;
-    }
+.filme-lista {
+  padding: 24px 3%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  list-style: none;
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
 }

@@ -1,5 +1,6 @@
 import { Filme } from "../../types/Filme"
 import Estrela from "../Estrela"
+import './index.scss'
 export interface Props {
     filme: Filme
 }
@@ -16,17 +17,27 @@ export default function CartaoFilme(props: Props){
                    <p className="filme-titulo">
                        {filme.title}
                  </p>
-
-                 <Estrela>
+                {filme.vote_average>0 &&
+                 <Estrela
                         avaliação={filme.vote_average}
-                     </Estrela>
+                     />
+                     
+                     }
+                
                      
                  <div className="hidden-content">
-
-                     <p className="descrição">
-                          {filme.overview}
+                    {filme.overview &&
+                    <p className="descrição">
+                          {filme.overview.length > 100
+                          ?`${filme.overview.substring(0,100)}...`
+                          : filme.overview
+                        }
                      </p>
+                    }
 
+                        <button className="btn-default">
+                            ver mais
+                        </button>
                      </div>
                 </div>
       </li>

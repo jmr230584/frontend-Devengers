@@ -32,8 +32,8 @@ export default function Listafilmes(){
             {filmes.map((filme)=> 
             
             <CartaoFilme
-             key={filme.id}          
-             filme={filme}
+            key={filme.id}
+            filme={filme}
             />
             
             )}
