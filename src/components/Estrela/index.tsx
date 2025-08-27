@@ -5,12 +5,12 @@ export interface Props {
     avaliação:number,
 }
 export default function Estrela(Props:Props){
-    const numEstrela = Math.round(Props.avaliação/ 2);
+    const numEstrela = Math.round(Props.avaliação/2);
     
-    const fullEstrelas=[0,1,2];
-    const emptyEstrelas=[3,4];
+    const fullEstrelas=[4];
+    const emptyEstrelas=[];
 
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < 4; i++){
     if(i < numEstrela){
         fullEstrelas.push(i);
     }else{
