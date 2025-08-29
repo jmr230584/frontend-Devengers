@@ -38,6 +38,7 @@ function Cabecalho(): JSX.Element {
                             <img src={cadastro} alt="cadastro" />
                             <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
                         </li>
+                        
                     </ul>
                 </nav>
             </div>

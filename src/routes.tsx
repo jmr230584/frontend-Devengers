@@ -9,6 +9,7 @@ import PSobreNos from './pages/PSobreNos/PSobreNos';
 import PLogin from './pages/PLogin/PLogin';
 import PEmbreve from './pages/PEmBreve/PEmBreve';
 import PPreVenda from './pages/PPreVenda/PPrevenda';
+import PFilme from './pages/PFilme/PFilme';
 
 function AppRoutes() {
     return (
@@ -23,6 +24,7 @@ function AppRoutes() {
                 <Route path= {APP_ROUTES.ROUTE_LOGIN} element={<PLogin/>}></Route>
                 <Route path= {APP_ROUTES.ROUTE_EM_BREVE} element={<PEmbreve/>}></Route>
                 <Route path={APP_ROUTES.ROUTE_PRE_VENDA} element={<PPreVenda/>}></Route>
+                <Route path={APP_ROUTES.ROUTE_COMPRA} element={<PFilme/>}></Route>
             </Routes>
         </BrowserRouter>
     );
