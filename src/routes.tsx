@@ -23,6 +23,7 @@ function AppRoutes() {
                 <Route path= {APP_ROUTES.ROUTE_LOGIN} element={<PLogin/>}></Route>
                 <Route path= {APP_ROUTES.ROUTE_EM_BREVE} element={<PEmbreve/>}></Route>
                 <Route path={APP_ROUTES.ROUTE_PRE_VENDA} element={<PPreVenda/>}></Route>
+                
             </Routes>
         </BrowserRouter>
     );
