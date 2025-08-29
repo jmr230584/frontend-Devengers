@@ -1,6 +1,7 @@
 import { JSX } from "react";
 import estilo from './Ingressos.module.css';
 import poster from '../../assets/the-wild-robot.png'; 
+import { APP_ROUTES } from "../../appConfig";
 
 function Ingressos(): JSX.Element {
     const hasIngressos = true; // Simula se o usuário comprou ingressos
@@ -53,7 +54,7 @@ function Ingressos(): JSX.Element {
 
             <div className={estilo.rodape}>
                 <p>Compre seu ingresso agora e evite filas!</p>
-                <button className={estilo.botao}>Ver programação</button>
+                <a href={APP_ROUTES.ROUTE_PROGRAMACAO} className={estilo.botao}>Ver programação</a>
             </div>
         </main>
     );

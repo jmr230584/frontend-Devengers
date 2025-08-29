@@ -24,6 +24,7 @@ header {
     font-size: 20px;
     text-decoration: none;
     font-weight: 300;
+    white-space: nowrap;
 }
 
 .imgLogo,
