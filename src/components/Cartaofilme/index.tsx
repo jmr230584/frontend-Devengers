@@ -28,8 +28,8 @@ export default function CartaoFilme(props: Props){
                  <div className="hidden-content">
                     {filme.overview &&
                     <p className="descrição">
-                          {filme.overview.length > 100
-                          ?`${filme.overview.substring(0,100)}...`
+                          {filme.overview.length > 27
+                          ?`${filme.overview.substring(0,27)}...`
                           : filme.overview
                         }
                      </p>
