@@ -1,0 +1,143 @@
+
+
+.filme {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f2f0eb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Coluna da esquerda */
+.esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+  margin-bottom: 1rem;
+}
+
+.classificacao {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.classificacao span {
+  background: #2ecc71;
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Coluna da direita */
+.direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #8b0000;
+  margin-bottom: 0.5rem;
+}
+
+.duracao {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.descricao {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Datas */
+.datas {
+  margin-bottom: 2rem;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #8b0000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.listaDatas {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.data {
+  padding: 0.6rem 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.data:hover {
+  background: #444;
+}
+
+.selecionada {
+  background: #999;
+}
+
+/* Sessões */
+.sessoes {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sessao h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.sessao p {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.horarios {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.horario {
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.horario:hover {
+  background: #444;
+}
