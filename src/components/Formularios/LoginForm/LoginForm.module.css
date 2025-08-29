@@ -53,14 +53,24 @@
 }
 
 .input-button-login {
-    width: 30%;
+    min-width: 140px;
     height: 7vh;
-    font-size: 1.3rem;
-    font-weight: bold;
     background-color: var(--vermelho);
-    color: var(--branco);
+    color: var(--creme);
     border: none;
-    border-radius: 5px;
-    margin: auto auto;
-    margin-bottom: 2%;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* centraliza vertical */
+    cursor: pointer;
+    font-family: Oswald;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0 20px;
+    /* só lateral */
+    gap: 0.75rem;
+
 }

@@ -54,8 +54,31 @@ nav ul li img {
 }
 
 .direita {
-    width: 85%;
+    width: 95%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-evenly;
+}
+
+.botaoLogout {
+    background-color: var(--vermelho);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: Oswald, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botaoLogout:hover {
+    background-color: #96190b;
+}
+
+.navLinks ul {
+    display: flex;
+    gap: 70px;
+    padding: 0;
+    list-style: none;
 }
