@@ -55,12 +55,20 @@ function Cabecalho(): JSX.Element {
                             <img src={sobre} alt="sobre" />
                             <a href={APP_ROUTES.ROUTE_SOBRE_NOS}>SOBRE NÓS</a>
                         </li>
+
                         {!isAuthenticated && (
                             <li>
                                 <img src={cadastro} alt="cadastro" />
                                 <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
                             </li>
                         )}
+
+                        <li>
+                            <img src={cadastro} alt="cadastro" />
+                            <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
+                        </li>
+                        
+
                     </ul>
                 </nav>
 

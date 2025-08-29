@@ -1,4 +1,4 @@
-.filme-lista {
+.lista-filmes{
   padding: 24px 3%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
@@ -8,4 +8,11 @@
   max-width: 1200px; 
   margin: 0 auto; 
   justify-items: center; 
+  margin-left: 60px;
+}
+
+ul {
+  width: 50%;
+  display: flex;
+  gap: 10px;
 }
