@@ -4,8 +4,6 @@ import axios from "axios";
 import { Filme } from "../../types/Filme";
 import CartaoFilme from "../Cartaofilme/index";
 
-
-
 export default function Listafilmes(){
     const [filmes , setFilmes] = useState<Filme[]>([]);
 
