@@ -1,74 +1,81 @@
 .filme-card {
-    width: 25%;
-    height: 100%;
-    border-radius: 9px;
-    overflow: hidden;
-    position: relative;
-    margin-left: 120px;
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%; 
 
-   .poster-filme img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1;
-    transition: opacity .6s;
-   }
+  
+.poster-filme img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
 
-   .infos-filme{
+  .infos-filme {
     position: absolute;
     bottom: 0;
-    background: linear-gradient(#00000000,#1a1717 90%);
+    background: linear-gradient(#00000000, #1a1717 90%);
     height: 200px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content:end;
+    justify-content: space-around;
     padding: 30px;
 
-    .filme-titulo{
-        color:#f1f5f9;
-        font-size: 12px;
-        margin-bottom: 6px;
+    .filme-titulo {
+      color: #eaeced;
+      font-size: 14px;
+      margin-bottom: 6px;
     }
 
-    .hidden-content{
-        color: #ffffff;
-        font-size: 12px;
-        margin-top: 8px;
-        height: 0px;
-        opacity: 0;
-        transition: all .6s;
-
-        .btn-default{
-            background-color: #6046ff;
-            padding: 6px 8px;
-            border-radius: 4px;
-            margin-top: 10px;
-            color:#fffefe;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-
-        }
+    .descrição{
+        color: #eaeced;
     }
-   }
 
-   &:hover{
+    .hidden-content {
+      color: #ffffff;
+      font-size: 12px;
+      margin-top: 8px;
+      height: 0;
+      opacity: 0;
+      transition: all .6s;
+
+      .btn-default {
+        background-color: #6046ff;
+        padding: 6px 8px;
+        border-radius: 4px;
+        margin-top: 10px;
+        color: #fffefe;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
+
+  &:hover {
     cursor: pointer;
-    .poster-filme img{
-        opacity: 0.5;
-    }
-    .hidden-content{
-        opacity: 1;
-        height: 100px;
 
-    }
-    .infos-filme:has(.descrição) .hidden-content{
-        height: 100px;
+    .poster-filme img {
+      opacity: 0.5;
     }
 
-    .infos-filme:not(:has(.descrição)) .hidden-content{
-        height: 50px;
+    .hidden-content {
+      opacity: 1;
+      height: 100px;
     }
-   }
+
+    .infos-filme:has(.descrição) .hidden-content {
+      height: 100px;
+    }
+
+    .infos-filme:not(:has(.descrição)) .hidden-content {
+      height: 50px;
+    }
+  }
 }
