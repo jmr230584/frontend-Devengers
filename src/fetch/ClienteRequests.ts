@@ -1,100 +1,87 @@
-/**
- * Classe para lidar com autenticação
- */
-class AuthRequests {
-    private serverUrl: string;
-    private routeLogin: string;
+import { SERVER_CFG } from '../appConfig';
 
+interface ClienteDTO {
+    idCliente?: number;       // ID do Cliente (? indica um parâmetro opcional)
+    nomeCompleto?: string;          // Nome do cliente
+    email?: string;         // E-mail do cliente
+    senha?: string;  // senha do cliente
+    cpf?: string;      // cpf do cliente
+    celular?: string;       // Celular do Cliente
+}
+
+/**
+ * Classe com a coleção de funções que farão as requisições à API
+ * Esta classe representa apenas as requisições da entidade Cliente
+ */
+class ClienteRequests {
+
+    private serverURL: string;          // Variável para o endereço do servidor
+    private routeListaCliente: string;   // Variável para a rota de listagem de Cliente
+    private routeCadastraCliente: string; // Variável para a rota de cadastro de Cliente
+
+    /**
+     * O construtor é chamado automaticamente quando criamos uma nova instância da classe.
+     * Ele define os valores iniciais das variáveis com base nas configurações da API.
+     */
     constructor() {
-        this.serverUrl = 'http://localhost:3333';
-        this.routeLogin = '/login';
+        this.serverURL = SERVER_CFG.SERVER_URL;     // Endereço do servidor web
+        this.routeListaCliente = '/lista/cliente';    // Rota configurada na API
+        this.routeCadastraCliente = '/cadastro/cliente';    // Rota configurada na API
     }
 
     /**
-     * Realiza a autenticação no servidor
-     * @param login - email e senha
-     * @returns true caso sucesso, false caso erro
+     * Método que faz uma requisição à API para buscar a lista de Cliente cadastrados
+     * @returns Retorna um JSON com a lista de Cliente ou null em caso de erro
      */
-    async login(login: { email: string; senha: string; }) {
+    async listarCliente(): Promise<ClienteDTO | null> {
         try {
-            const response = await fetch(`${this.serverUrl}${this.routeLogin}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(login)
-            });
+            // faz a requisição no servidor
+            const respostaAPI = await fetch(`${this.serverURL}${this.routeListaCliente}`);
 
-            if (!response.ok) {
-                // retorna erro com mensagem do backend
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Falha no login');
+            // Verifica se a resposta foi bem-sucedida (status HTTP 200-299)
+            if (respostaAPI.ok) {
+                // converte a reposta para um JSON
+                const listaDeCliente: ClienteDTO = await respostaAPI.json();
+                // retorna a resposta
+                return listaDeCliente;
             }
-
-            const data = await response.json();
-            console.log('Resposta do login:', data);
-
-            // Corrigido: agora usa data.cliente em vez de data.usuario
-            if (data.auth) {
-                this.persistToken(
-                    data.token,
-                    data.cliente.email,
-                    data.cliente.id_cliente.toString(),
-                    data.auth.toString()
-                );
-            }
-
-            return true;
-        } catch (error: any) {
-            console.error('Erro no login:', error);
-            throw error;
+            
+            // retorna um valor nulo caso o servidor não envie a resposta
+            return null;
+        } catch (error) {
+            // exibe detalhes do erro no console
+            console.error(`Erro ao fazer a consulta de Cliente: ${error}`);
+            // retorna um valor nulo
+            return null;
         }
     }
 
     /**
-     * Persiste o token no localStorage
+     * Envia os dados do formulário Cliente para a API
+     * @param formCliente Objeto com os valores do formulário
+     * @returns **true** se cadastro com sucesso, **false** se falha
      */
-    persistToken(token: string, email: string, idCliente: string, isAuth: string) {
-        localStorage.setItem('token', token);
-        localStorage.setItem('email', email);
-        localStorage.setItem('idCliente', idCliente);
-        localStorage.setItem('isAuth', isAuth);
-    }
-
-    /**
-     * Remove as informações do localStorage
-     */
-    removeToken() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('email');
-        localStorage.removeItem('idCliente');
-        localStorage.removeItem('isAuth');
-        window.location.href = '/login';
-    }
-
-    /**
-     * Verifica a validade do token
-     */
-    checkTokenExpiry() {
-        const token = localStorage.getItem('token');
-
-        if (!token) return false;
-
+    async enviaFormularioCliente(formCliente: string): Promise<boolean> {
         try {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            const now = Math.floor(Date.now() / 1000);
+            const respostaAPI = await fetch(`${this.serverURL}${this.routeCadastraCliente}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: formCliente
+            });
 
-            if (payload.exp < now) {
-                this.removeToken();
-                return false;
+            if(!respostaAPI.ok) {
+                throw new Error('Erro ao fazer requisição com o servidor.');
             }
+
             return true;
         } catch (error) {
-            console.error('Erro ao verificar token:', error);
-            this.removeToken();
+            console.error(`Erro ao enviar o formulário. ${error}`);
             return false;
         }
     }
 }
 
-export default new AuthRequests();
+// Exporta a classe já instanciando um objeto da mesma
+export default new ClienteRequests();
