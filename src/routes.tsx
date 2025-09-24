@@ -22,7 +22,7 @@ function AppRoutes() {
                 <Route path={APP_ROUTES.ROUTE_CADASTRO} element={<PCadastro/>}></Route>
                 <Route path= {APP_ROUTES.ROUTE_LOGIN} element={<PLogin/>}></Route>
                 <Route path= {APP_ROUTES.ROUTE_EM_BREVE} element={<PEmbreve/>}></Route>
-                <Route path={ APP_ROUTES.ROUTE_COMPRA} element={<PFilme/>}></Route>
+               <Route path={`${APP_ROUTES.ROUTE_COMPRA}/:id`} element={<PFilme />}></Route>
             </Routes>
         </BrowserRouter>
     );

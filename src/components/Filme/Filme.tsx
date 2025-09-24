@@ -1,68 +1,61 @@
-import { JSX } from "react";
-import estilo from './Filme.module.css';
-import poster from '../../assets/branca-de-neve.png';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import styles from "../Filme/Filme.module.css"; // CSS module
 
-function Filme(): JSX.Element {
-    const filme = {
-        titulo: 'Branca de Neve',
-        duracao: '110min',
-        genero: 'Infantil/Fantasia',
-        descricao: 'Uma recriação do clássico animado de Walt Disney de 1937 sobre uma bela jovem princesa que, enquanto é perseguida por uma rainha ciumenta, busca refúgio em uma cabana em uma floresta.',
-        classificacao: 'L',
-        datas: ["29/05", "30/05", "31/05", "01/06", "02/06", "03/06"],
-        sessoes: [
-            { tipo: "VIP - Dublado", preco: "R$ 35.00", horarios: ["8:00", "19:30"] },
-            { tipo: "3D - Dublado", preco: "R$ 25.00", horarios: ["13:45", "10:15", "16:00"] },
-            { tipo: "IMAX - Dublado", preco: "R$ 30.00", horarios: ["20:00"] },
-            { tipo: "2D - Dublado", preco: "R$ 20.00", horarios: ["18:00"] }
-        ]
+type Filme = {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  original_language: string;
+};
+
+export default function Compra() {
+  const { id } = useParams<{ id: string }>();
+  const [filme, setFilme] = useState<Filme | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchFilme = async () => {
+      try {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=396a9240a4ab4e099cdcded28f677dd0&language=pt-BR`
+        );
+        if (!res.ok) throw new Error("Erro ao buscar filme");
+        const data = await res.json();
+        setFilme(data);
+      } catch (err) {
+        console.error("Erro ao carregar filme:", err);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    const dataSelecionada = "31/05"; // simulação de data selecionada
+    fetchFilme();
+  }, [id]);
 
-    return (
-        <main className={estilo.filme}>
-            <div className={estilo.esquerda}>
-                <img className={estilo.poster} src={poster} alt={`Poster do filme ${filme.titulo}`} />
-                <p className={estilo.classificacao}><span>{filme.classificacao}</span> {filme.genero}</p>
-            </div>
+  if (loading) return <div className={styles.compra__loading}>Carregando...</div>;
+  if (!filme) return <div className={styles.compra__erro}>Filme não encontrado.</div>;
 
-            <div className={estilo.direita}>
-                <h2 className={estilo.titulo}>{filme.titulo}</h2>
-                <p className={estilo.duracao}>Duração do filme: {filme.duracao}</p>
-                <p className={estilo.descricao}>{filme.descricao}</p>
-
-                <div className={estilo.datas}>
-                    <h3 className={estilo.subtitulo}>ESCOLHA UMA DATA</h3>
-                    <div className={estilo.listaDatas}>
-                        {filme.datas.map((data, index) => (
-                            <button
-                                key={index}
-                                className={`${estilo.data} ${data === dataSelecionada ? estilo.selecionada : ""}`}
-                            >
-                                {data}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={estilo.sessoes}>
-                    {filme.sessoes.map((sessao, index) => (
-                        <div key={index} className={estilo.sessao}>
-                            <h4>{sessao.tipo}</h4>
-                            <p>{sessao.preco}</p>
-                            <div className={estilo.horarios}>
-                                {sessao.horarios.map((hora, i) => (
-                                    <button key={i} className={estilo.horario}>{hora}</button>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </main>
-    );
+  return (
+    <div className={styles.compra}>
+      <div className={styles.compra__card}>
+        <img
+          src={`https://image.tmdb.org/t/p/original${filme.poster_path}`}
+          alt={filme.title}
+          className={styles.compra__imagem}
+        />
+        <div className={styles.compra__info}>
+          <h1 className={styles.compra__titulo}>{filme.title}</h1>
+          <p className={styles.compra__descricao}>{filme.overview}</p>
+          <span className={styles.compra__legenda}>
+            Legenda: {filme.original_language}
+          </span>
+          <button className={styles.compra__botao}>Confirmar Compra</button>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default Filme;
-

@@ -13,9 +13,10 @@ export default function CartaoFilme(props: Props) {
     const navigate = useNavigate()
 
     // Função para lidar com o clique no botão "ver mais"
-    const handleVerMaisClick = () => {
-        navigate(APP_ROUTES.ROUTE_COMPRA, { state: { filmeId: filme.id } })
-    }
+const handleVerMaisClick = () => {
+    navigate(`${APP_ROUTES.ROUTE_COMPRA}/${filme.id}`)
+}
+
 
     return (
         <li className="filme-card">
