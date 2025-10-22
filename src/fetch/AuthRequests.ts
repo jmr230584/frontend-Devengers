@@ -44,7 +44,14 @@ class AuthRequests {
             // verifica se o atributo auth da resposta tem o valor TRUE, se tiver é porque a autenticação teve sucesso
             if (data.auth) {
                 // persistem o token, o nome e o id  no localstorage
-                this.persistToken(data.token, data.cliente.email, data.cliente.id_cliente, data.auth.toString);
+                this.persistToken(
+                    data.token,
+                    data.cliente.email,
+                    data.cliente.nome_completo, 
+                    data.cliente.id_cliente,
+                    data.auth.toString()
+                );
+
             }
 
             // retorna a resposta da requisição a quem chamou a função
@@ -62,13 +69,14 @@ class AuthRequests {
      * @param {*} email - nome usuário recebido do servidor
      * @param {*} idUsuario - idUsuario recebido do servidor
      */
-    persistToken(token: string, email: string, idUsuario: string, isAuth: string) {
+    persistToken(token: string, email: string, nome: string, idUsuario: string, isAuth: string) {
         // adiciona o token no localstorade com o apelido de token
         localStorage.setItem('token', token);  // -> armazena o token no localStorage e coloca o 'apelido' de token
         // adiciona o nome de usuário no localstorade com o apelido de username
         localStorage.setItem('email', email);  // -> armazena o username no localStorage e coloca o 'apelido' de username 
         // adiciona o id da pessoa no localstorade com o apelido de idPessoa
         localStorage.setItem('idUsuario', idUsuario);  // -> armazena o idPessoa no localStorage e coloca o 'apelido' de idPessoa
+        localStorage.setItem('nome', nome);
         // adiciona o valor de autenticação no localstorade com o apelido de isAuth
         localStorage.setItem('isAuth', isAuth);  // -> armazena o estado da autenticação (true, false) no localStorage e coloca o 'apelido' de isAuth
     }

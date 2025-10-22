@@ -83,3 +83,17 @@ nav ul li img {
     padding: 0;
     list-style: none;
 }
+
+.usuarioArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.boasVindas {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    margin-right: 5px;
+}

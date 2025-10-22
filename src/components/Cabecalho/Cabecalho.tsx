@@ -11,21 +11,26 @@ import AuthRequests from '../../fetch/AuthRequests';
 
 function Cabecalho(): JSX.Element {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [nomeUsuario, setNomeUsuario] = useState<string | null>(null);
 
     useEffect(() => {
         const isAuth = localStorage.getItem('isAuth');
         const token = localStorage.getItem('token');
+        const nome = localStorage.getItem('nome');
 
         if (isAuth && token && AuthRequests.checkTokenExpiry()) {
             setIsAuthenticated(true);
+            setNomeUsuario(nome);
         } else {
             setIsAuthenticated(false);
+            setNomeUsuario(null);
         }
     }, []);
 
     const logout = () => {
         AuthRequests.removeToken();
-        setIsAuthenticated(false); // atualiza estado local
+        setIsAuthenticated(false);
+        setNomeUsuario(null);
     };
 
 
@@ -61,21 +66,24 @@ function Cabecalho(): JSX.Element {
                                 <img src={cadastro} alt="cadastro" />
                                 <a href={APP_ROUTES.ROUTE_CADASTRO}>CADASTRO</a>
                             </li>
-                        )}                        
-
+                        )}
                     </ul>
                 </nav>
 
-                {/* Botão de logout separado */}
                 {isAuthenticated && (
-                    <button onClick={logout} className={estilo.botaoLogout}>
-                        Logout
-                    </button>
+                    <div className={estilo.usuarioArea}>
+                        <span className={estilo.boasVindas}>
+                            Olá{nomeUsuario ? `, ${nomeUsuario.split(' ')[0]}!` : '!'}
+                        </span>
+                        <button onClick={logout} className={estilo.botaoLogout}>
+                            Logout
+                        </button>
+                    </div>
                 )}
             </div>
 
         </header>
-    )
+    );
 }
 
 export default Cabecalho;
