@@ -1,114 +1,149 @@
-.compra {
+.container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+}
 
-  &__card {
-    display: flex;
-    gap: 20px;
-    max-width: 1100px;
-    background: #fdfdfd;
-    border-radius: 12px;
-    padding: 20px;
-  }
+.card {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1100px;
+}
 
-  &__imagem {
-    width: 300px;
-    border-radius: 10px;
-  }
+.poster {
+  width: 360px;
+  object-fit: cover;
+}
 
-  &__info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+.content {
+  padding: 24px;
+  flex: 1;
+}
 
-  &__titulo {
-    font-size: 28px;
-    color: #b22222;
-    margin: 0;
-  }
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #222;
+}
 
-  &__duracao {
-    font-weight: bold;
-    font-size: 16px;
-  }
+.overview {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
 
-  &__descricao {
-    font-size: 15px;
-    line-height: 1.4;
-  }
+/* SEÇÃO DE DATAS */
+.datasContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 
-  &__classificacao {
-    display: inline-block;
-    background: #2ecc71;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-weight: bold;
-  }
+.dataBox {
+  width: 90px;
+  height: 60px;
+  background: #f3f3f3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
 
-  &__subtitulo {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #b22222;
-  }
+.dataBox:hover {
+  transform: scale(1.05);
+}
 
-  &__datas {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+.dataSelecionada {
+  background: #ffe9d0;
+  border: 2px solid #ff7b00;
+}
 
-    .compra__data {
-      padding: 8px 15px;
-      border: none;
-      background: black;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
+/* AGRUPAMENTO DAS OPÇÕES (VIP / IMAX / 3D / 2D) */
+.tiposContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+}
 
-      &.ativo {
-        background: gray;
-      }
-    }
-  }
+.tipoBox {
+  flex: 1;
+  min-width: 200px;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
 
-  &__sessao {
-    margin-bottom: 20px;
+.tipoBox:hover {
+  transform: translateY(-2px);
+}
 
-    h4 {
-      margin: 5px 0;
-    }
+.tipoHeader {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 
-    p {
-      margin: 0 0 8px;
-      font-weight: bold;
-    }
-  }
+.horariosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-  &__horarios {
-    display: flex;
-    gap: 10px;
+.horarioBox {
+  width: 80px;
+  height: 50px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
 
-    .compra__hora {
-      padding: 5px 12px;
-      border: none;
-      border-radius: 6px;
-      background: black;
-      color: white;
-      cursor: pointer;
-    }
-  }
+.horarioSelecionado {
+  background: #ffe9d0;
+  border: 2px solid #ff7b00;
+}
 
-  &__botao {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #b22222;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.horarioBox:hover {
+  transform: scale(1.05);
+}
+
+/* BOTÃO DE COMPRA */
+.botaoContainer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.botaoCompra {
+  background: #ff7b00;
+  border: none;
+  padding: 12px 32px;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botaoCompra:hover {
+  background: #e46d00;
+  transform: scale(1.05);
 }
