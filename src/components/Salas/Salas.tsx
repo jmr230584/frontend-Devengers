@@ -12,7 +12,6 @@ function Salas(): JSX.Element {
     return (
         <main className={estilo.salas}>
             <h1 className={estilo.titulo}>NOSSAS SALAS</h1>
-
             <section className={estilo.sala}>
                 <img src={img2d} alt="Sala 2D" />
                 <div className={estilo.conteudo}>

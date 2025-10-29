@@ -61,14 +61,28 @@ class ClienteRequests {
      * @param formCliente Objeto com os valores do formulário
      * @returns **true** se cadastro com sucesso, **false** se falha
      */
-    async enviaFormularioCliente(formCliente: string): Promise<boolean> {
+    async enviarFormularioCliente(formulario: any): Promise<boolean> {
+
+        // Criar um FormData para envio multipart
+        const formDataToSend = new FormData();  // criando o objeto FormData
+        formDataToSend.append('nome', formulario.nome);
+        formDataToSend.append('email', formulario.email);
+        formDataToSend.append('cpf', formulario.cpf);
+        formDataToSend.append('celular', formulario.celular);
+        formDataToSend.append('senha', formulario.senha);
+        if(formulario.imagemPerfil instanceof File) {
+            formDataToSend.append('imagemPerfil', formulario.imagemPerfil);
+        }
+
+       
+       
         try {
             const respostaAPI = await fetch(`${this.serverURL}${this.routeCadastraCliente}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: formCliente
+                body: formDataToSend
             });
 
             if(!respostaAPI.ok) {
@@ -81,6 +95,7 @@ class ClienteRequests {
             return false;
         }
     }
+    
 }
 
 // Exporta a classe já instanciando um objeto da mesma

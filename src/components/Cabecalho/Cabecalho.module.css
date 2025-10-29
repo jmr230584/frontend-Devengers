@@ -97,3 +97,34 @@ nav ul li img {
     font-family: Oswald, sans-serif;
     margin-right: 5px;
 }
+
+.fotoPerfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--preto);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.fotoPerfil:hover {
+    transform: scale(1.05);
+}
+
+.fotoPlaceholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--vermelho);
+    color: white;
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--preto);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
