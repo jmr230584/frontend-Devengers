@@ -50,6 +50,35 @@ function CadastroForm(): JSX.Element {
             <div className={estilo.superior}>
                 <h2>CADASTRAR</h2>
             </div>
+
+            <div className={estilo['profile-upload']}>
+                        <div className={estilo['profile-picture']}>
+                            {formData.imagemPerfil && typeof formData.imagemPerfil !== "string" ? (
+                                <img
+                                    src={URL.createObjectURL(formData.imagemPerfil)}
+                                    alt="Pré-visualização"
+                                    className={estilo['profile-img']}
+                                />
+                            ) : (
+                                <div className={estilo['profile-placeholder']}>
+                                    <span>👤</span>
+                                </div>
+                            )}
+
+                            {/* Ícone de câmera clicável */}
+                            <label htmlFor="imagemPerfil" className={estilo['camera-icon']}>
+                                📷
+                            </label>
+                            <input
+                                type="file"
+                                name="imagemPerfil"
+                                id="imagemPerfil"
+                                accept="image/*"
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
+                    
             <section className={estilo['container-cadastro']}>
                 <form onSubmit={(e) => { handleSubmit(e); }}
                     className={estilo['form-cadastro']}
@@ -107,33 +136,6 @@ function CadastroForm(): JSX.Element {
                             onChange={(e) => handleChange("celular", e.target.value)}
                         />
                     </label>
-                    <div className={estilo['profile-upload']}>
-                        <div className={estilo['profile-picture']}>
-                            {formData.imagemPerfil && typeof formData.imagemPerfil !== "string" ? (
-                                <img
-                                    src={URL.createObjectURL(formData.imagemPerfil)}
-                                    alt="Pré-visualização"
-                                    className={estilo['profile-img']}
-                                />
-                            ) : (
-                                <div className={estilo['profile-placeholder']}>
-                                    <span>👤</span>
-                                </div>
-                            )}
-
-                            {/* Ícone de câmera clicável */}
-                            <label htmlFor="imagemPerfil" className={estilo['camera-icon']}>
-                                📷
-                            </label>
-                            <input
-                                type="file"
-                                name="imagemPerfil"
-                                id="imagemPerfil"
-                                accept="image/*"
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                    </div>
 
                     <div className={estilo['container-botoes']}>
 
