@@ -6,21 +6,25 @@ import programacao from '../../assets/icon-programacao.png';
 import salas from '../../assets/icon-nossas-salas.png';
 import sobre from '../../assets/icon-sobre-nos.png';
 import cadastro from '../../assets/icon-cadastro.png';
-import { APP_ROUTES } from '../../appConfig';
+import { APP_ROUTES, SERVER_CFG } from '../../appConfig';
 import AuthRequests from '../../fetch/AuthRequests';
 
 function Cabecalho(): JSX.Element {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [nomeUsuario, setNomeUsuario] = useState<string | null>(null);
+    const [imagemPerfil, setImagemPerfil] = useState('');
 
     useEffect(() => {
         const isAuth = localStorage.getItem('isAuth');
         const token = localStorage.getItem('token');
         const nome = localStorage.getItem('nome');
+        const imagem: string | null = localStorage.getItem('imagemPerfil');
 
         if (isAuth && token && AuthRequests.checkTokenExpiry()) {
             setIsAuthenticated(true);
             setNomeUsuario(nome);
+            setImagemPerfil(imagem ? imagem : '');
+            console.log("Imagem de perfil no cabeçalho:", imagemPerfil);
         } else {
             setIsAuthenticated(false);
             setNomeUsuario(null);
@@ -72,6 +76,33 @@ function Cabecalho(): JSX.Element {
 
                 {isAuthenticated && (
                     <div className={estilo.usuarioArea}>
+                        <img
+                            src={
+                                imagemPerfil && imagemPerfil.trim() !== ""
+                                    ? imagemPerfil
+                                    : `https://api.dicebear.com/9.x/avataaars-neutral/png?seed=${encodeURIComponent(
+                                        (nomeUsuario || "usuario")
+                                            .normalize("NFD")
+                                            .replace(/[\u0300-\u036f]/g, "")
+                                            .replace(/[^a-zA-Z0-9]/g, "")
+                                    )}&size=40`
+                            }
+                            onError={(e) =>
+                            (e.currentTarget.src =
+                                "https://api.dicebear.com/9.x/identicon/png?seed=backup&size=40")
+                            }
+                            alt="Avatar do usuário"
+                            style={{
+                                width: "40px",
+                                height: "40px",
+                                borderRadius: "50%",
+                                objectFit: "cover",
+                            }}
+                        />
+
+
+
+
                         <span className={estilo.boasVindas}>
                             Olá{nomeUsuario ? `, ${nomeUsuario.split(' ')[0]}!` : '!'}
                         </span>

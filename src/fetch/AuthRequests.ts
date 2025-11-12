@@ -49,7 +49,8 @@ class AuthRequests {
                     data.cliente.email,
                     data.cliente.nome_completo, 
                     data.cliente.id_cliente,
-                    data.auth.toString()
+                    data.auth.toString(),
+                    data.cliente.imagemPerfil
                 );
 
             }
@@ -69,7 +70,7 @@ class AuthRequests {
      * @param {*} email - nome usuário recebido do servidor
      * @param {*} idUsuario - idUsuario recebido do servidor
      */
-    persistToken(token: string, email: string, nome: string, idUsuario: string, isAuth: string) {
+    persistToken(token: string, email: string, nome: string, idUsuario: string, isAuth: string, imagemPerfil:string) {
         // adiciona o token no localstorade com o apelido de token
         localStorage.setItem('token', token);  // -> armazena o token no localStorage e coloca o 'apelido' de token
         // adiciona o nome de usuário no localstorade com o apelido de username
@@ -79,6 +80,8 @@ class AuthRequests {
         localStorage.setItem('nome', nome);
         // adiciona o valor de autenticação no localstorade com o apelido de isAuth
         localStorage.setItem('isAuth', isAuth);  // -> armazena o estado da autenticação (true, false) no localStorage e coloca o 'apelido' de isAuth
+        
+        localStorage.setItem('imagemPerfil', imagemPerfil);
     }
 
     /**
@@ -93,6 +96,8 @@ class AuthRequests {
         localStorage.removeItem('idUsuario');  // -> remove o 'apelido' de idPessoa do localStorage
         // remove o isAuth do localstorage
         localStorage.removeItem('isAuth');  // -> remove o 'apelido' de isAuth do localStorage
+       
+        localStorage.removeItem('imagemPerfil');
         // redireciona o usuário para a página de login
         window.location.href = '/login';
     }
