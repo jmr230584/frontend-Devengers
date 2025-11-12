@@ -97,23 +97,5 @@ nav ul li img {
     font-family: Oswald, sans-serif;
     margin-right: 5px;
 }
-.foto-perfil-container img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 16px 0;
-}
 
-.foto-perfil-container img {
-  width: 100px;              /* tamanho da imagem */
-  height: 100px;             /* mantém formato quadrado */
-  border-radius: 50%;        /* deixa redondinha */
-  object-fit: cover;         /* evita distorção da imagem */
-  border: 3px solid #6a5acd; /* borda lilás (pode mudar a cor) */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* leve sombra */
-  transition: transform 0.3s ease;
-}
-
-.foto-perfil-container:hover img {
-  transform: scale(1.05); /* aumenta um pouquinho no hover */
-}
+ 
