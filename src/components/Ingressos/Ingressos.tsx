@@ -1,63 +1,59 @@
-import { JSX } from "react";
-import estilo from './Ingressos.module.css';
-import poster from '../../assets/the-wild-robot.png'; 
-import { APP_ROUTES } from "../../appConfig";
+import { useEffect, useState } from "react";
+import "./Ingressos.module.css";
+import { SERVER_CFG } from "../../appConfig"; // ✅ só o necessário
 
-function Ingressos(): JSX.Element {
-    const hasIngressos = true; // Simula se o usuário comprou ingressos
+type Ingresso = {
+  id_ingresso: number;
+  id_filme_api: string;
+  id_sessao: number;
+  numero_assento: number;
+  fileira: string;
+  preco_ingresso: number;
+  status_ingresso: string;
+};
 
-    const ingresso = {
-        titulo: 'The Wild Robot',
-        duracao: '100min',
-        genero: 'Animação',
-        descricao: 'A robô ROZZUM 7134 naufraga em uma ilha desabitada e aprende a viver em harmonia com os animais locais, enquanto cuida de um filhote de ganso.',
-        sala: 'SALA 1 - 3D',
-        fileira: '80',
-        assento: '9',
-        data: '29/05',
-        horario: '16:30'
-    };
+export default function Ingressos() {
+  const [ingressos, setIngressos] = useState<Ingresso[]>([]);
 
-    return (
-        <main className={estilo.ingressos}>
-            <h2 className={estilo.titulo}>SEUS INGRESSOS</h2>
+  useEffect(() => {
+    async function carregarIngressos() {
+      try {
+        const res = await fetch(`${SERVER_CFG.SERVER_URL}/ingressos`);
+        if (!res.ok) throw new Error("Erro ao carregar ingressos");
+        const data = await res.json();
+        setIngressos(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    carregarIngressos();
+  }, []);
 
-            {hasIngressos ? (
-                <>
-                    {[1, 2].map((_, index) => (
-                        <div key={index} className={estilo.cartao}>
-                            <img className={estilo.poster} src={poster} alt="Poster do filme The Wild Robot" />
-                            <div className={estilo.info}>
-                                <h3 className={estilo.nome}>
-                                    {ingresso.titulo} <span className={estilo.classificacao}>L</span>
-                                </h3>
-                                <p className={estilo.duracaoGenero}>{ingresso.duracao} - {ingresso.genero}</p>
-                                <p className={estilo.descricao}>{ingresso.descricao}</p>
-                            </div>
-                            <div className={estilo.detalhes}>
-                                <div className={estilo.blocoPreto}>
-                                    {ingresso.sala}<br />
-                                    FILEIRA {ingresso.fileira}<br />
-                                    ASSENTO {ingresso.assento}
-                                </div>
-                                <div className={estilo.blocoPreto}>
-                                    {ingresso.data}<br />
-                                    {ingresso.horario}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </>
-            ) : (
-                <p className={estilo.semIngresso}>Você ainda não comprou ingressos.</p>
-            )}
+  if (ingressos.length === 0) {
+    return <p>Nenhum ingresso comprado ainda 🎟️</p>;
+  }
 
-            <div className={estilo.rodape}>
-                <p>Compre seu ingresso agora e evite filas!</p>
-                <a href={APP_ROUTES.ROUTE_PROGRAMACAO} className={estilo.botao}>Ver programação</a>
+  return (
+    <div className="container">
+      <h2>Meus ingressos</h2>
+      <div className="lista">
+        {ingressos.map((ingresso) => (
+          <div key={ingresso.id_ingresso} className="card">
+            <img
+              src={`https://image.tmdb.org/t/p/w300${ingresso.id_filme_api}.jpg`}
+              alt="Filme"
+              className="poster"
+            />
+            <div>
+              <p><strong>Filme:</strong> {ingresso.id_filme_api}</p>
+              <p><strong>Sessão:</strong> {ingresso.id_sessao}</p>
+              <p><strong>Assento:</strong> {ingresso.fileira}{ingresso.numero_assento}</p>
+              <p><strong>Preço:</strong> R$ {ingresso.preco_ingresso.toFixed(2)}</p>
+              <p><strong>Status:</strong> {ingresso.status_ingresso}</p>
             </div>
-        </main>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
-
-export default Ingressos;
