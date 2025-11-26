@@ -46,6 +46,7 @@
   background-color: var(--branco);
 }
 
+
 .container-botoes {
   display: flex;
   gap: 1rem;
@@ -96,3 +97,75 @@
     min-width: 0;
   }
 }
+
+/* ===== ÁREA DE PERFIL ===== */
+.profile-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.profile-picture {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.profile-picture input[type="file"] {
+  display: none;
+}
+
+/* Imagem circular */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--creme);
+}
+
+/* Placeholder quando não há imagem */
+.profile-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--roxo), var(--azul));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--creme);
+}
+
+/* Ícone da câmera */
+.camera-icon {
+  position: absolute;
+  bottom: 2px; 
+  right: 2px; 
+  background: white;
+  color: var(--preto);
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--creme);
+  transform: translate(10%, 10%); 
+  transition: all 0.2s ease;
+}
+
+.camera-icon:hover {
+  transform: translate(10%, 10%) scale(1.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
