@@ -22,6 +22,9 @@
     padding: 20px;
     max-width: 1000px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* Necessário para o botão de deletar */
+    position: relative;
 }
 
 .poster {
@@ -105,4 +108,27 @@
     font-size: 1.1rem;
     color: #444;
     margin-top: 2rem;
+}
+
+/* ----------------------------- */
+/* BOTÃO DE DELETAR (NOVO)      */
+/* ----------------------------- */
+
+.botaoDeletar {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: #d10000;
+    border: none;
+    color: white;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.botaoDeletar:hover {
+    background: #820000;
+    transform: scale(1.1);
 }

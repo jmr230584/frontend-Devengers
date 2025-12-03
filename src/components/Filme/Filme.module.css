@@ -5,9 +5,15 @@
   align-items: flex-start;
   gap: 40px;
   padding: 50px;
+<<<<<<< HEAD
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
   font-family: "Poppins", sans-serif;
   color: #fff;
+=======
+  background: #D8CEBA; /* bege claro */
+  font-family: "Poppins", sans-serif;
+  color: #2C1E1E; /* texto escuro */
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   min-height: 100vh;
 }
 
@@ -15,7 +21,11 @@
 .poster {
   width: 330px;
   border-radius: 16px;
+<<<<<<< HEAD
   box-shadow: 0 10px 30px rgba(255, 123, 0, 0.4);
+=======
+  box-shadow: 0 10px 30px rgba(110, 0, 0, 0.4); /* sombra vinho */
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -27,34 +37,57 @@
 /* === INFORMAÇÕES DO FILME === */
 .info {
   flex: 1;
+<<<<<<< HEAD
   background: #181818;
   border-radius: 14px;
   padding: 30px 35px;
   box-shadow: 0 4px 20px rgba(255, 123, 0, 0.1);
+=======
+  background: #fffefb; /* bege médio */
+  border-radius: 14px;
+  padding: 30px 35px;
+  box-shadow: 0 4px 20px rgba(110, 0, 0, 0.15);
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 .info h1 {
   font-size: 32px;
+<<<<<<< HEAD
   color: #ff7b00;
+=======
+  color: #6E0000; /* vinho */
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   margin-bottom: 15px;
 }
 
 .info p {
+<<<<<<< HEAD
   color: #d1d1d1;
+=======
+  color: #2C1E1E;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   line-height: 1.7;
   margin-bottom: 12px;
   font-size: 15px;
 }
 
 .info strong {
+<<<<<<< HEAD
   color: #fff;
+=======
+  color: #000;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 /* === TÍTULOS DAS SEÇÕES === */
 .info h3 {
   margin-top: 30px;
   font-size: 20px;
+<<<<<<< HEAD
   color: #ffb366;
+=======
+  color: #6E0000;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 /* === GRID DE OPÇÕES === */
@@ -67,38 +100,67 @@
 
 /* === CARTÕES DE SELEÇÃO === */
 .card {
+<<<<<<< HEAD
   background: #252525;
   border-radius: 10px;
   padding: 14px 20px;
   cursor: pointer;
   color: #f5f5f5;
+=======
+  background: #ede7d7;
+  border-radius: 10px;
+  padding: 14px 20px;
+  cursor: pointer;
+  color: #2C1E1E;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   font-weight: 500;
   text-align: center;
   border: 2px solid transparent;
   min-width: 100px;
   transition: all 0.25s ease;
+<<<<<<< HEAD
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+=======
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 .card:hover {
   transform: scale(1.07);
+<<<<<<< HEAD
   border-color: #ff7b00;
   background: #303030;
+=======
+  border-color: #6E0000;
+  background: #B6A687;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 /* === ESTILO DE ITEM SELECIONADO === */
 .selecionado {
+<<<<<<< HEAD
   background: #ff7b00 !important;
   color: #fff;
   font-weight: 600;
   border: 2px solid #ffa733;
   box-shadow: 0 0 12px rgba(255, 136, 0, 0.6);
+=======
+  background: #6E0000 !important;
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid #8C2A2A;
+  box-shadow: 0 0 12px rgba(110, 0, 0, 0.6);
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 /* === BOTÃO DE COMPRA === */
 .botaoCompra {
   margin-top: 35px;
+<<<<<<< HEAD
   background: linear-gradient(90deg, #ff7b00, #ff9f40);
+=======
+  background: #6E0000;
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
   border: none;
   padding: 14px 36px;
   color: white;
@@ -108,6 +170,7 @@
   font-size: 16px;
   letter-spacing: 0.5px;
   transition: 0.3s ease;
+<<<<<<< HEAD
   box-shadow: 0 6px 16px rgba(255, 123, 0, 0.3);
 }
 
@@ -115,6 +178,15 @@
   background: linear-gradient(90deg, #ff8c1a, #ffaa4d);
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(255, 123, 0, 0.5);
+=======
+  box-shadow: 0 6px 16px rgba(110, 0, 0, 0.3);
+}
+
+.botaoCompra:hover {
+  background: #8C2A2A;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(110, 0, 0, 0.5);
+>>>>>>> 8a0b96da7940a2fd93426ace4f28e2f180bdeadd
 }
 
 /* === RESPONSIVIDADE === */
