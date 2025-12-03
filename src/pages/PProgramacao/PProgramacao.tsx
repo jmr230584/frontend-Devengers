@@ -3,6 +3,7 @@ import Cabecalho from "../../components/Cabecalho/Cabecalho";
 import Paginas from "../../components/Programacao/Paginas";
 import Navbar from "../../components/Navbar";
 import Listafilmes from "../../components/ListaFilmes";
+import CartaoFilmeFixo from "../../components/CartaoFixo/cartaoFixo";
 
 function PProgramacao(): JSX.Element {
     return (
@@ -11,6 +12,7 @@ function PProgramacao(): JSX.Element {
             <Paginas />
             <Navbar />
             <Listafilmes/>
+            <CartaoFilmeFixo />
         </>
     );
 }
