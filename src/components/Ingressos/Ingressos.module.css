@@ -1,24 +1,134 @@
-.container {
-  padding: 40px;
+.ingressos {
+    background-color: #e7dfd5;
+    padding: 40px;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
-.lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.titulo {
+    font-size: 2rem;
+    color: #5c0000;
+    margin-bottom: 2rem;
+    margin-left: 455px;
 }
 
-.card {
-  background: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  width: 300px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+.cartao {
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1000px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* Necessário para o botão de deletar */
+    position: relative;
 }
 
 .poster {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+    height: 130px;
+    border-radius: 12px;
+}
+
+.info {
+    flex: 2;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.nome {
+    font-size: 1.5rem;
+    color: #b30000;
+    margin-bottom: 0.2rem;
+}
+
+.classificacao {
+    background-color: green;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 6px;
+}
+
+.duracaoGenero {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.blocoPreto {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 100px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.rodape {
+    margin-top: 3rem;
+    margin-left: 455px;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+}
+
+.botao {
+    margin-top: 0.5rem;
+    background-color: #820000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Oswald;
+    margin-top: 15px;
+}
+
+.semIngresso {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 2rem;
+}
+
+/* ----------------------------- */
+/* BOTÃO DE DELETAR (NOVO)      */
+/* ----------------------------- */
+
+.botaoDeletar {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: #d10000;
+    border: none;
+    color: white;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.botaoDeletar:hover {
+    background: #820000;
+    transform: scale(1.1);
 }

@@ -1,59 +1,124 @@
-import { useEffect, useState } from "react";
-import "./Ingressos.module.css";
-import { SERVER_CFG } from "../../appConfig"; // ✅ só o necessário
+import { JSX, useState } from "react";
+import estilo from './Ingressos.module.css'
+import poster1 from '../../assets/zootopia2.jpg';
+import poster2 from '../../assets/mulherdejardim.jpg';
+import poster3 from '../../assets/Oppenheimer.jpg';
+import { APP_ROUTES } from "../../appConfig";
 
-type Ingresso = {
-  id_ingresso: number;
-  id_filme_api: string;
-  id_sessao: number;
-  numero_assento: number;
-  fileira: string;
-  preco_ingresso: number;
-  status_ingresso: string;
-};
+function Ingressos(): JSX.Element {
 
-export default function Ingressos() {
-  const [ingressos, setIngressos] = useState<Ingresso[]>([]);
-
-  useEffect(() => {
-    async function carregarIngressos() {
-      try {
-        const res = await fetch(`${SERVER_CFG.SERVER_URL}/ingressos`);
-        if (!res.ok) throw new Error("Erro ao carregar ingressos");
-        const data = await res.json();
-        setIngressos(data);
-      } catch (err) {
-        console.error(err);
-      }
+   const [ingressos, setIngressos] = useState([
+     {
+        id: 3,
+        titulo: 'Oppenheimer',
+        duracao: '180min',
+        genero: 'Drama / Biografia',
+        descricao: 'A história de J. Robert Oppenheimer e o desenvolvimento da bomba atômica.',
+        sala: 'SALA 1 - IMAX',
+        fileira: 'A',
+        assento: '5',
+        data: '12/12',
+        horario: '22:00',
+        poster: poster3 
+    },
+    
+    {
+        id: 2,
+        titulo: 'A Mulher no Jardim',
+        duracao: '125min',
+        genero: 'Suspense / Drama',
+        descricao: 'Uma mulher descobre segredos sombrios escondidos no jardim de sua nova casa.',
+        sala: 'SALA 3 - XD',
+        fileira: 'B',
+        assento: '4',
+        data: '13/12',
+        horario: '19:20',
+        poster: poster2 
+    },
+    {
+        id: 1,
+        titulo: 'Zootopia 2',
+        duracao: '105min',
+        genero: 'Animação / Comédia',
+        descricao: 'Judy Hopps e Nick Wilde enfrentam um novo mistério que ameaça toda a cidade.',
+        sala: 'SALA 4 - 2D',
+        fileira: 'A',
+        assento: '2',
+        data: '10/12',
+        horario: '16:00',
+        poster: poster1 
     }
-    carregarIngressos();
-  }, []);
+     
+    
+]);
 
-  if (ingressos.length === 0) {
-    return <p>Nenhum ingresso comprado ainda 🎟️</p>;
-  }
+ 
+    const deletarIngresso = (id: number) => {
+        setIngressos(prev => prev.filter(i => i.id !== id));
+    };
 
-  return (
-    <div className="container">
-      <h2>Meus ingressos</h2>
-      <div className="lista">
-        {ingressos.map((ingresso) => (
-          <div key={ingresso.id_ingresso} className="card">
-            <img
-              src={`https://image.tmdb.org/t/p/w300${ingresso.id_filme_api}.jpg`}
-              alt="Filme"
-              className="poster"
-            />
-            <div>
-              <p><strong>Filme:</strong> {ingresso.id_filme_api}</p>
-              <p><strong>Sessão:</strong> {ingresso.id_sessao}</p>
-              <p><strong>Assento:</strong> {ingresso.fileira}{ingresso.numero_assento}</p>
-              <p><strong>Preço:</strong> R$ {ingresso.preco_ingresso.toFixed(2)}</p>
-              <p><strong>Status:</strong> {ingresso.status_ingresso}</p>
+    const hasIngressos = ingressos.length > 0;
+
+    return (
+        <main className={estilo.ingressos}>
+            <h2 className={estilo.titulo}>SEUS INGRESSOS</h2>
+
+            {hasIngressos ? (
+                <>
+                    {ingressos.map((ingresso) => (
+                        <div key={ingresso.id} className={estilo.cartao}>
+
+                            <img
+                                className={estilo.poster}
+                                src={ingresso.poster}
+                                alt={`Poster do filme ${ingresso.titulo}`}
+                            />
+
+                            <div className={estilo.info}>
+                                <h3 className={estilo.nome}>
+                                    {ingresso.titulo} <span className={estilo.classificacao}>L</span>
+                                </h3>
+
+                                <p className={estilo.duracaoGenero}>
+                                    {ingresso.duracao} - {ingresso.genero}
+                                </p>
+
+                                <p className={estilo.descricao}>{ingresso.descricao}</p>
+                            </div>
+
+                            <div className={estilo.detalhes}>
+                                <div className={estilo.blocoPreto}>
+                                    {ingresso.sala}<br />
+                                    FILEIRA {ingresso.fileira}<br />
+                                    ASSENTO {ingresso.assento}
+                                </div>
+
+                                <div className={estilo.blocoPreto}>
+                                    {ingresso.data}<br />
+                                    {ingresso.horario}
+                                </div>
+                            </div>
+
+                            {/* Botão deletar */}
+                            <button
+                                className={estilo.botaoDeletar}
+                                onClick={() => deletarIngresso(ingresso.id)}
+                            >
+                                ✖
+                            </button>
+                        </div>
+                    ))}
+                </>
+            ) : (
+                <p className={estilo.semIngresso}>Você ainda não comprou ingressos.</p>
+            )}
+
+            <div className={estilo.rodape}>
+                <p>Compre seu ingresso agora e evite filas!</p>
+                <a href={APP_ROUTES.ROUTE_PROGRAMACAO} className={estilo.botao}>Ver programação</a>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+        </main>
+    );
 }
+
+export default Ingressos;
